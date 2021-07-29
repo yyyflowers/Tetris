@@ -116,7 +116,7 @@ function createModel() {
     return;
   }
   var container = document.querySelector("#container")
-  currentModel = MODELS[_.random(0, MODELS.length - 1)];
+  currentModel = MODELS[Math.round(Math.random() * MODELS.length -1)];
   for (var k in currentModel) {
     var diveles = document.createElement("div")
     diveles.classList.add('activity_model')
@@ -158,7 +158,7 @@ function move(x, y) {
 
 // 旋转    旋转后的行 = 旋转前的列   旋转后的列 = 3 - 旋转前的行
 function rotate() {
-  // 克隆出来的旋转不会影响到真是的
+  // 克隆出来的旋转不会影响到真实的
   var cloneCurrentModel = _.cloneDeep(currentModel)
   for (var k in cloneCurrentModel) {
     var blockModel = cloneCurrentModel[k]
